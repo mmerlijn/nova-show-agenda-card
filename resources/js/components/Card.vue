@@ -2,7 +2,7 @@
   <Card>
       <div class="p-2">
           <InputLabel for="period_">Andere periode</InputLabel>
-          <select id="period_" class="rounded py-1 text-sm" v-model="next" @change="getAgenda">
+          <select id="period_" class="rounded py-1 text-sm px-2 border border-gray-400 bg-gray-50" v-model="next" @change="getAgenda">
               <option value="0">Deze week</option>
               <option value="1">Volgende week</option>
               <option value="2">Twee weken verder</option>

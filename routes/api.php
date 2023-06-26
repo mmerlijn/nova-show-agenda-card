@@ -15,17 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('show-planning/{room}/{next?}', function (Request $request,$room,$next=0) {
-    if (!$next) {
-        $startOn = now()->startOfDay();
-        $endsOn = now()->endOfWeek();
-    } else {
-        $startOn = now()->addMonths($next)->startOfWeek();
-        $endsOn = now()->addMonths($next)->endOfWeek();
-    }
-    $room = \App\Models\Agd\Room::find($room);
-    return [
-        'agenda'=>$room->agenda->whereBetween('date', [$startOn->format('Y-m-d'), $endsOn->format('Y-m-d')])->toArray(),
-        'room'=> RoomResource::make($room),
-        ];
-})->name('show-agenda-card');
+Route::get('show-planning/{room}/{next?}', [\App\Http\Controllers\Agenda\RoomPlanningController::class,'nova'])->name('show-agenda-card');
