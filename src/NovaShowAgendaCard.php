@@ -22,7 +22,5 @@ class NovaShowAgendaCard extends Card
     {
         return 'nova-show-agenda-card';
     }
-    public function agendaApi($url){
-        return $this->withMeta(['agendaApi'=>$url]);
-    }
+
 }

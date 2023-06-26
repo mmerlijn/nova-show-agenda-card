@@ -40,6 +40,7 @@ import ViewBar from "./ViewBar.vue";
 const next =ref(0)
 const agenda = ref({});
 const room = ref({})
+
 const props = defineProps({
     card:Object,
     resource:Object,
@@ -52,29 +53,10 @@ onMounted(()=>{
 const getAgenda = () =>{
     Nova.request().get('/nova-vendor/nova-show-agenda-card/show-planning/'+props.resourceId+'/'+next.value)
         .then((response)=> {
-            console.log(response.data)
             agenda.value = response.data.agenda
             room.value = response.data.room
         })
 }
-/*
-export default {
-    components: {InputLabel},
-
-  props: [
-    'card',
-
-    // The following props are only available on resource detail cards...
-    // 'resource',
-    // 'resourceId',
-    // 'resourceName',
-  ],
-
-  mounted() {
-    //
-  },
-}
-*/
 
 </script>
 
