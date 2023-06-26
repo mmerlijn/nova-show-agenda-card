@@ -1,6 +1,6 @@
 <?php
 
-namespace Mmerlijn\NovaShowAgendaCard;
+namespace mmerlijn\NovaShowAgendaCard;
 
 use Laravel\Nova\Card;
 
@@ -21,5 +21,8 @@ class NovaShowAgendaCard extends Card
     public function component()
     {
         return 'nova-show-agenda-card';
+    }
+    public function agendaApi($url){
+        return $this->withMeta(['agendaApi'=>$url]);
     }
 }

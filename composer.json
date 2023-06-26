@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Mmerlijn\\NovaShowAgendaCard\\": "src/"
+            "mmerlijn\\NovaShowAgendaCard\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Mmerlijn\\NovaShowAgendaCard\\CardServiceProvider"
+                "mmerlijn\\NovaShowAgendaCard\\CardServiceProvider"
             ]
         }
     },

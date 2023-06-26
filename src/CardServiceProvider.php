@@ -1,6 +1,6 @@
 <?php
 
-namespace Mmerlijn\NovaShowAgendaCard;
+namespace mmerlijn\NovaShowAgendaCard;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;

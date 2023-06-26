@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Resources\Agenda\RoomResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/endpoint', function (Request $request) {
-//     //
-// });
+Route::get('show-planning/{room}/{next?}', function (Request $request,$room,$next=0) {
+    if (!$next) {
+        $startOn = now()->startOfDay();
+        $endsOn = now()->endOfWeek();
+    } else {
+        $startOn = now()->addMonths($next)->startOfWeek();
+        $endsOn = now()->addMonths($next)->endOfWeek();
+    }
+    $room = \App\Models\Agd\Room::find($room);
+    return [
+        'agenda'=>$room->agenda->whereBetween('date', [$startOn->format('Y-m-d'), $endsOn->format('Y-m-d')])->toArray(),
+        'room'=> RoomResource::make($room),
+        ];
+})->name('show-agenda-card');
