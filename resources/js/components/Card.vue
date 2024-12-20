@@ -51,10 +51,14 @@ onMounted(()=>{
     getAgenda()
 })
 const getAgenda = () =>{
-    Nova.request().get('/nova-vendor/nova-show-agenda-card/show-planning/'+props.resourceId+'/'+next.value)
+    Nova.request().get(route('nova-show-agenda-card',{room:props.resourceId,next:next.value}))
         .then((response)=> {
-            agenda.value = response.data.agenda
-            room.value = response.data.room
+            if(response.data.room){
+                room.value = response.data.room
+            }
+            if(response.data.agenda){
+                agenda.value = response.data.agenda
+            }
         })
 }
 

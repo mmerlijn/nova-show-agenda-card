@@ -18,7 +18,7 @@ class NovaShowAgendaCard extends Card
      *
      * @return string
      */
-    public function component()
+    public function component(): string
     {
         return 'nova-show-agenda-card';
     }

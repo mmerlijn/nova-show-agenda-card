@@ -3,12 +3,12 @@
     <template v-if="settings.show_halfs">
         <div class="flex justify-between w-full font-semibold">
             <template v-for="n in settings.number_of_hours">
-                <div class="bg-gray-300 w-full flex justify-between">
+                <div class="bg-slate-300 w-full flex justify-between">
                     <span v-if="n>1">00</span>
                     <span v-else>&nbsp;</span>
                     <span>{{ n + settings.start_hour - 1 }}:</span>
                 </div>
-                <div class="bg-gray-100 w-full flex justify-between">
+                <div class="bg-slate-100 w-full flex justify-between">
                     <span>30</span>
                     <span v-if="n < settings.number_of_hours">{{ n + settings.start_hour }}:</span>
                     <span v-else>&nbsp;</span>
@@ -19,13 +19,13 @@
     <template v-else>
         <div class="flex justify-between w-full font-semibold">
             <template v-for="n in settings.number_of_hours">
-                <div class="bg-gray-300 w-full flex justify-start">
+                <div class="bg-slate-300 w-full flex justify-start">
                     <span v-if="n>1">00</span>
-                    <span v-else class="text-gray-300">00</span>
+                    <span v-else class="text-slate-300">00</span>
                 </div>
-                <div class="bg-gray-100 w-full flex justify-end">
+                <div class="bg-slate-100 w-full flex justify-end">
                     <span v-if="n < settings.number_of_hours">{{ n + settings.start_hour }}:</span>
-                    <span v-else class="text-gray-100">1</span>
+                    <span v-else class="text-slate-100">1</span>
                 </div>
             </template>
         </div>
@@ -34,16 +34,16 @@
 
 <script setup>
 
-import {ref, onMounted, onBeforeUnmount} from "vue";
+import {onBeforeUnmount, onMounted, ref} from "vue";
 
 const props = defineProps({
     min: {
         type: Number,
-        default: 480,
+        default: 420,
     },
     max: {
         type: Number,
-        default: 1020,
+        default: 1140,
     },
 })
 const settings = ref({

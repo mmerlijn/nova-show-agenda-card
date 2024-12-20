@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('show-planning/{room}/{next?}', [\App\Http\Controllers\Agenda\RoomPlanningController::class,'nova'])->name('show-agenda-card');
+Route::get('show-planning/{room}/{next?}', [\App\Http\Controllers\Agenda\RoomPlanningController::class,'nova'])->name('nova-show-agenda-card');
